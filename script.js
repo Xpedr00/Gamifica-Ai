@@ -110,3 +110,46 @@ function selecionarSlide(indiceSlide) {
     banner.classList.add(slides[slideAtual])
 
 }
+
+// Carregamento dinamico dos cases 
+let listaCases = [
+    {
+        imagem: "https://unsplash.it/600/400?image=13",
+        descricao: "Uma empresa de tecnologia lança um desafio de gamificação onde os funcionarios devem propor e implementar ideias inovadoras.",
+    },
+    {
+        imagem: "https://unsplash.it/600/400?image=53",
+        descricao: "Uma empresa de tecnologia lança um desafio de gamificação onde os funcionarios devem propor e implementar ideias inovadoras.",
+    },
+    {
+        imagem: "https://unsplash.it/600/400?image=78",
+        descricao: "Uma empresa de vendas implementa uma competição gamificada entre equipes que competem pelo topo do ranking.",
+    },
+    {
+        imagem: "https://unsplash.it/600/400?image=3",
+        descricao: "Uma empresa de saúde promove o bem-estar dos funcionários através de um desafio de gamificação de condicionamento físico.",
+    },
+]
+
+function redenrizarCases() {
+    // Encontrar o elemento para inserir os cards
+    let containerCards = document.querySelector(".container-cards")
+
+    // Variavel para guardar o html dos cases montados
+    let template = ""
+
+    // Para cada case da listaCases
+    listaCases.forEach(cardCase => {
+        // Mostrar o html no card, passando os atributos do case
+        template += `<div class="card">
+        <img src=${ cardCase.imagem } alt="">
+        <p>${ cardCase.descricao }</p>
+        <button>Ver mais</button>
+    </div>`
+
+    })
+
+    // Inserir html dos cases montados no elemento container-cards
+    containerCards.innerHTML = template
+
+}
